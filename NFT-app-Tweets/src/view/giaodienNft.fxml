@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NftViewController">
+   <children>
+      <BorderPane layoutX="5.0" layoutY="5.0" prefHeight="600.0" prefWidth="1100.0">
+         <left>
+            <AnchorPane prefHeight="577.0" prefWidth="180.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="-8.0" layoutY="-4.8" prefHeight="605.0" prefWidth="181.0" style="-fx-background-image: gradient;" stylesheets="@displaymain.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-5.0">
+                     <children>
+                        <Button layoutX="30.0" layoutY="247.0" mnemonicParsing="false" onAction="#switchToTweetDis" prefHeight="62.0" prefWidth="118.0" styleClass="nav-btn" text="Tweet Analysis">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="39.0" layoutY="447.0" mnemonicParsing="false" onAction="#switchToNftDis" prefHeight="67.0" prefWidth="104.0" styleClass="nav-btn" text="NFT Analysis" />
+                        <ImageView fitHeight="117.0" fitWidth="114.0" layoutX="32.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/twitterimg.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="113.0" fitWidth="121.0" layoutX="35.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/nftsquare.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="54.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/kisspng-computer-icons-house-home-symbol-home-page-icon-5b50ad5ca1b629.8597211415320139166624.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="51.0" layoutY="98.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="34.0" prefWidth="79.0" styleClass="nav-btn" text="Home" />
+                        <Separator layoutX="53.0" layoutY="115.0" prefHeight="18.0" prefWidth="71.0" />
+                        <Separator layoutX="53.0" layoutY="293.0" prefHeight="18.0" prefWidth="71.0" />
+                        <Separator layoutX="55.0" layoutY="495.0" prefHeight="18.0" prefWidth="71.0" />
+                        <Button layoutX="17.0" layoutY="535.0" mnemonicParsing="false" onAction="#lienKetNgoai" prefHeight="35.0" prefWidth="148.0" styleClass="nav-btn" text="See on Opensea !" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="mainFxmlClass" />
+                        <String fx:value="leftside" />
+                     </styleClass>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@displaymain.css" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="8.0" layoutY="12.0" prefHeight="578.0" prefWidth="908.0" styleClass="white-bg" stylesheets="@displaymain.css">
+                     <children>
+                        <AnchorPane layoutX="6.0" layoutY="181.0" prefHeight="394.0" prefWidth="898.0">
+                           <children>
+                              <TableView fx:id="nftTable" layoutX="6.0" layoutY="8.0" prefHeight="376.0" prefWidth="886.0">
+                                 <columns>
+                                    <TableColumn fx:id="rankcol" prefWidth="75.0" text="Rank" />
+                                    <TableColumn fx:id="salecol" prefWidth="55.20001220703125" text="Sale(%)" visible="false" />
+                                    <TableColumn fx:id="namecol" prefWidth="167.2000732421875" text="Name" />
+                                    <TableColumn fx:id="pricecol" prefWidth="118.4000244140625" text="Price" />
+                                    <TableColumn fx:id="floorpricecol" prefWidth="87.199951171875" text="Floor price" />
+                                    <TableColumn fx:id="avgpricecol" prefWidth="94.39996337890625" text="Average price" />
+                                    <TableColumn fx:id="volumecol" prefWidth="154.4000244140625" text="Volume" />
+                                    <TableColumn fx:id="urlcol" prefWidth="206.39999999999998" text="Url" />
+                                 </columns>
+                              </TableView>
+                              <BarChart fx:id="chart" layoutX="17.0" layoutY="14.0" prefHeight="333.0" prefWidth="866.0" title="Number of tweets found by NFTs" visible="false">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="18.0" layoutY="22.0" prefHeight="170.0" prefWidth="895.0" styleClass="white-bg" stylesheets="@displaymain.css">
+                     <children>
+                        <AnchorPane layoutX="20.0" layoutY="9.0" prefHeight="75.0" prefWidth="195.0" styleClass="card">
+                           <children>
+                              <TextField fx:id="textFieldSearch" layoutX="25.0" layoutY="14.0" promptText="Search by name" />
+                              <Button layoutX="8.0" layoutY="46.0" mnemonicParsing="false" onAction="#searchBtn" prefHeight="30.0" prefWidth="182.0" styleClass="nav-btn" text="Search" />
+                           </children></AnchorPane>
+                        <AnchorPane layoutX="234.0" layoutY="8.0" prefHeight="75.0" prefWidth="197.0" styleClass="card">
+                           <children>
+                              <Button layoutX="1.0" layoutY="4.0" mnemonicParsing="false" onAction="#discountBtn" prefHeight="66.0" prefWidth="195.0" styleClass="nav-btn" text="Discount on OpenSea" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="448.0" layoutY="7.0" prefHeight="75.0" prefWidth="197.0" styleClass="card">
+                           <children>
+                              <Button layoutX="1.0" layoutY="4.0" mnemonicParsing="false" onAction="#whatShould" prefHeight="66.0" prefWidth="195.0" styleClass="nav-btn" text="What should you Invest??" />
+                           </children>
+                        </AnchorPane>
+                        <ImageView fitHeight="79.0" fitWidth="89.0" layoutX="73.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/1024px-Search_Icon.svg.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="75.0" fitWidth="102.0" layoutX="496.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/question.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="73.0" fitWidth="87.0" layoutX="307.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/pngtree-price-tag-with-the-discount-icon-vector-png-image_6686659.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane layoutX="661.0" layoutY="7.0" prefHeight="75.0" prefWidth="197.0" styleClass="card">
+                           <children>
+                              <Button layoutX="1.0" layoutY="4.0" mnemonicParsing="false" onAction="#thongke" prefHeight="66.0" prefWidth="195.0" styleClass="nav-btn" text="Trend statistics on twitter" />
+                           </children>
+                        </AnchorPane>
+                        <ImageView fitHeight="71.0" fitWidth="78.0" layoutX="721.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/staticimg.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
